@@ -1,6 +1,6 @@
 # Day04 — Prompt Engineering & Tool Calling
 
-**Làm nhóm · K4 Level 3B · Trợ lý AI theo lĩnh vực tự chọn.** Mỗi thành viên tự nộp cùng URL repo nhóm trên VLearn. Repo bài nộp dùng tên `K4-L3-DAY04-HoVaTen-MSSV-PromptEngineeringToolCalling`; khai báo thành viên và đóng góp trong [TEAM.md](TEAM.md).
+**Làm nhóm · K4 Level 3B · Trợ lý AI theo lĩnh vực tự chọn.** Mỗi thành viên tự nộp cùng URL repo nhóm trên VLearn. Repo nhóm dùng tên `K4B-DAY04-3soldiers` theo mẫu BTC đã cập nhật; khai báo thành viên và đóng góp trong [TEAM.md](TEAM.md).
 
 ## Bài lab này làm gì?
 
@@ -76,6 +76,27 @@ python run_eval.py --provider openrouter --version v0 --suite base --eval-cases 
 ```
 
 Thay `openrouter` bằng `openai`, `anthropic` hoặc `gemini` khi dùng provider khác. Không commit `.env`.
+
+### Linux — cấu hình nhóm đã dùng
+
+```bash
+cd starter_v0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+cp .env.example .env
+```
+
+Điền `OPENAI_API_KEY` trong `.env`, rồi chạy cùng model snapshot cho mọi version:
+
+```bash
+python scripts/preflight_provider.py --provider openai --model gpt-4.1-mini-2025-04-14
+python run_eval.py --provider openai --model gpt-4.1-mini-2025-04-14 --version v3 --suite base --eval-cases data/eval_base.json
+python web_ui.py --provider openai --model gpt-4.1-mini-2025-04-14 --version v3_bonus
+```
+
+Mở `http://127.0.0.1:8000`. UI hiển thị artifact version, tool call,
+arguments, result hoặc error và tự lưu transcript vào `starter_v0/transcripts/`.
 
 ## Tài liệu cần đọc
 
