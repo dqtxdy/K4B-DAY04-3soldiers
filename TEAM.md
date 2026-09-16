@@ -48,10 +48,10 @@
 ### Phạm Minh Đăng — 2A202602591
 
 - Phần việc và file/commit/PR: v2 tools/version log/run (`bf0391b`); 10 case nhóm và group run (`b01134a`).
-- Quyết định, khó khăn và cách xử lý:
-- Điều đã học:
-- AI/công cụ đã dùng và cách kiểm tra:
-- Thời điểm đã tự nộp URL repo chung trên VLearn:
+- Quyết định, khó khăn và cách xử lý: Tôi phụ trách cập nhật tools ở phiên bản v2, ghi nhận version log, chạy eval v2 và cập nhật eval_group.json cùng final group run. Tôi quyết định tập trung vào phần cấu hình tool và dữ liệu eval để agent có khả năng xử lý yêu cầu tốt hơn. Khó khăn chính là đảm bảo thay đổi trong tools không làm lệch hành vi agent và kết quả eval vẫn có thể so sánh với các phiên bản trước. Tôi xử lý bằng cách cập nhật từng phần, chạy lại eval, lưu kết quả run và ghi nhận thay đổi vào version log.
+- Điều đã học: Tôi học được cách thêm cơ chế safety cho AI agent, cách xây dựng tool mới và cách viết test để xác nhận tool hoạt động đúng. Tôi cũng hiểu rõ hơn rằng chất lượng agent không chỉ nằm ở câu trả lời đúng, mà còn ở khả năng xử lý an toàn, biết dùng tool phù hợp và có bằng chứng kiểm thử rõ ràng.
+- AI/công cụ đã dùng và cách kiểm tra: Tôi sử dụng Codex để hỗ trợ cập nhật cấu hình tools, chỉnh sửa file eval nhóm và ghi nhận kết quả chạy các phiên bản. Sau khi thay đổi, tôi kiểm tra bằng cách chạy eval cho phiên bản v2 và final group run, sau đó lưu kết quả vào thư mục artifacts/runs, cập nhật version_log.csv và eval_group.json để đối chiếu kết quả với các phiên bản trước.
+- Thời điểm đã tự nộp URL repo chung trên VLearn: 10:51:40 16/9/2026
 
 ### Đỗ Trọng Bình — 2A202602855
 
