@@ -173,5 +173,3 @@ Cả ba thành viên đã tự hoàn thành mục của mình tại [TEAM.md —
 
 - [x] Tên repo theo mẫu BTC đã cập nhật: `K4B-DAY04-3soldiers`.
 - [x] Deadline mặc định và commit chốt nội dung nhóm đã được ghi trong `TEAM.md`.
-
-UI HTTP/API và tool trace đã được kiểm tra trên artifact cuối. Nhóm cần mở `http://127.0.0.1:8000` một lần trên máy demo để xác nhận bố cục trực quan trước khi trình bày.
