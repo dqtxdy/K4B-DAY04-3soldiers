@@ -1,7 +1,121 @@
 {
   "dataset_id": "day04_v3_helpdesk_group",
   "dataset_role": "group",
-  "description": "Template intentionally left empty. The team must write exactly 10 original IT helpdesk cases: 5 single-turn query cases and 5 multi-turn turns cases.",
+  "description": "Ten original Northstar Labs helpdesk cases authored by the team: five single-turn and five multi-turn.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_ticket_status",
+      "phase": "B",
+      "suite": "group",
+      "query": "Cho tôi biết trạng thái hiện tại của ticket LAB-1002.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "check_ticket_status", "args": {"ticket_id": "LAB-1002"}}]},
+      "metadata": {"what_it_tests": "Route a read-only ticket status request to the team-built bonus tool."}
+    },
+    {
+      "id": "G02_meeting_room_hardware",
+      "phase": "B",
+      "suite": "group",
+      "query": "Kiểm tra phần cứng thiết bị phòng họp RM-501.",
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "inspect_device", "args": {"asset_id": "RM-501", "check": "hardware"}}]},
+      "metadata": {"what_it_tests": "Preserve a meeting-room asset ID and hardware diagnostic scope."}
+    },
+    {
+      "id": "G03_ticketing_policy",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm chính sách nội bộ về thông tin nào được phép ghi vào ticket hỗ trợ.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "policy", "args": {"policy_area": "ticketing"}}]},
+      "metadata": {"what_it_tests": "Distinguish policy retrieval from knowledge-base troubleshooting."}
+    },
+    {
+      "id": "G04_meeting_room_kb",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm hướng dẫn xử lý microphone phòng họp bị mất tiếng.",
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "search_kb", "args": {"category": "meeting_room"}}]},
+      "metadata": {"what_it_tests": "Select the meeting_room knowledge category without an asset inspection."}
+    },
+    {
+      "id": "G05_missing_ticket_id",
+      "phase": "B",
+      "suite": "group",
+      "query": "Kiểm tra trạng thái ticket giúp tôi nhưng tôi chưa gửi mã.",
+      "failure_type": "missing_info",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "text"}}]},
+      "metadata": {"what_it_tests": "Ask for a required ticket ID instead of inventing one."}
+    },
+    {
+      "id": "G06_device_correction",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Kiểm tra phần cứng LT-204."},
+        {"role": "user", "content": "Tôi ghi nhầm, thiết bị đúng là LT-411."},
+        {"role": "user", "content": "Và chỉ kiểm tra security trên máy đúng đó."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "inspect_device", "args": {"asset_id": "LT-411", "check": "security"}}]},
+      "metadata": {"what_it_tests": "Apply both the corrected asset and the latest diagnostic scope."}
+    },
+    {
+      "id": "G07_ticket_payload_review",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Chuẩn bị ticket lỗi microphone RM-501 mức medium."},
+        {"role": "user", "content": "Đổi mức ưu tiên thành high."},
+        {"role": "user", "content": "Cho tôi duyệt payload mới trước khi tạo."}
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "yes_no"}}]},
+      "metadata": {"what_it_tests": "Require confirmation after a pending ticket payload changes."}
+    },
+    {
+      "id": "G08_cancel_diagnostic",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Kiểm tra network của PR-404."},
+        {"role": "user", "content": "Dừng yêu cầu đó."},
+        {"role": "user", "content": "Không cần thực hiện công cụ nào nữa."}
+      ],
+      "failure_type": "unnecessary_tool",
+      "expect": {"no_tool": true},
+      "metadata": {"what_it_tests": "Honor cancellation without executing a stale diagnostic."}
+    },
+    {
+      "id": "G09_environment_carry",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tôi đang kiểm tra các dịch vụ ở staging."},
+        {"role": "user", "content": "Email thì chưa cần."},
+        {"role": "user", "content": "Chỉ xem trạng thái SSO trong môi trường đó."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "check_service_status", "args": {"service": "sso", "environment": "staging"}}]},
+      "metadata": {"what_it_tests": "Carry an established environment into the latest service request."}
+    },
+    {
+      "id": "G10_user_and_explicit_asset",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tôi cần xem tài khoản EMP-1008."},
+        {"role": "user", "content": "Thiết bị cần kiểm tra là MB-012."},
+        {"role": "user", "content": "Hãy tra tài khoản đó và kiểm tra security của đúng thiết bị vừa nêu."}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [
+        {"name": "lookup_user", "args": {"employee_id": "EMP-1008"}},
+        {"name": "inspect_device", "args": {"asset_id": "MB-012", "check": "security"}}
+      ]},
+      "metadata": {"what_it_tests": "Execute two explicitly requested operations with retained identifiers."}
+    }
+  ]
 }
