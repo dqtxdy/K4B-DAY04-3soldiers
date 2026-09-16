@@ -7,7 +7,7 @@
 - Tên nhóm: 3soldiers
 - Người đại diện / MSSV: Đoàn Quang Thanh / 2A202602841
 - Tên repo: `K4B-DAY04-3soldiers` (theo mẫu tên repo BTC đã cập nhật)
-- URL repo, nhánh nộp, commit chốt nội dung nhóm: <https://github.com/dqtxdy/K4B-DAY04-3soldiers>, `main`, `0e6d965`
+- URL repo, nhánh nộp, commit chốt nội dung nhóm: <https://github.com/dqtxdy/K4B-DAY04-3soldiers>, `main`, `3a2f94e`
 - Deadline mặc định: 23:59 ngày 16/09/2026, múi giờ Asia/Ho_Chi_Minh; thay bằng thông báo BTC nếu lớp có deadline khác.
 
 ## Thành viên
