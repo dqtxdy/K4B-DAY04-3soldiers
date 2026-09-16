@@ -1,0 +1,195 @@
+{
+  "run_id": "v3_bonus_B_bonus_openai_20260916T013820260349",
+  "version": "v3_bonus",
+  "artifact_version": "v3_bonus+pd30ecf3c1fdc+tdabce6a1ce04",
+  "prompt_hash": "d30ecf3c1fdc3d214a69134d8af7f6e500f67ee325a6f72e182bb4e4d1008f98",
+  "tools_hash": "dabce6a1ce046acc1143089b52000fb64026abf99e5b20f8815ce5bccd8bee15",
+  "phase": "B",
+  "suite": "bonus",
+  "provider": "openai",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "system_prompt": "/home/respectthanh/Workspace/vsc/vin/K4B-DAY04-3soldiers/starter_v0/artifacts/system_prompt.md",
+  "tools": "/home/respectthanh/Workspace/vsc/vin/K4B-DAY04-3soldiers/starter_v0/artifacts/tools.yaml",
+  "eval_cases": "data/eval_bonus.json",
+  "dataset_id": "day04_v3_helpdesk_bonus",
+  "dataset_role": "bonus",
+  "description": "Three team-authored cases for the read-only check_ticket_status extension.",
+  "generated_at": "2026-09-16T01:38:20",
+  "summary": {
+    "total_cases": 3,
+    "measured_cases": 3,
+    "provider_error_cases": 0,
+    "passed_cases": 3,
+    "case_accuracy": 1.0,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 1.0,
+    "multiturn_accuracy": null,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
+  },
+  "results": [
+    {
+      "id": "B01_known_ticket",
+      "phase": "B",
+      "suite": "bonus",
+      "case_suite": "bonus",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Route a known fictional ticket ID to the bonus tool."
+      },
+      "input": "Kiểm tra trạng thái ticket LAB-1001.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "check_ticket_status",
+            "args": {
+              "ticket_id": "LAB-1001"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "check_ticket_status",
+            "args": {
+              "ticket_id": "LAB-1001"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "check_ticket_status",
+          "args": {
+            "ticket_id": "LAB-1001"
+          },
+          "result": {
+            "tool": "check_ticket_status",
+            "ticket_id": "LAB-1001",
+            "status": "in_progress",
+            "priority": "high",
+            "updated_at": "2026-09-14T08:45:00+07:00",
+            "checked_at": "2026-09-14T09:00:00+07:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "B02_unknown_ticket",
+      "phase": "B",
+      "suite": "bonus",
+      "case_suite": "bonus",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Keep routing deterministic while the tool returns not_found."
+      },
+      "input": "Cho tôi trạng thái ticket LAB-9999.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "check_ticket_status",
+            "args": {
+              "ticket_id": "LAB-9999"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "check_ticket_status",
+            "args": {
+              "ticket_id": "LAB-9999"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "check_ticket_status",
+          "args": {
+            "ticket_id": "LAB-9999"
+          },
+          "result": {
+            "tool": "check_ticket_status",
+            "ticket_id": "LAB-9999",
+            "error": "not_found"
+          }
+        }
+      ]
+    },
+    {
+      "id": "B03_missing_ticket_id",
+      "phase": "B",
+      "suite": "bonus",
+      "case_suite": "bonus",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Ask for a missing ticket ID instead of guessing."
+      },
+      "input": "Kiểm tra giúp tôi trạng thái ticket.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Vui lòng cung cấp mã ticket bạn muốn kiểm tra trạng thái.",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Vui lòng cung cấp mã ticket bạn muốn kiểm tra trạng thái.",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "clarify",
+            "question": "Vui lòng cung cấp mã ticket bạn muốn kiểm tra trạng thái.",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    }
+  ]
+}

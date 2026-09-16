@@ -1,0 +1,17 @@
+{
+  "snapshot_at": "2026-09-14T09:00:00+07:00",
+  "tickets": [
+    {
+      "ticket_id": "LAB-1001",
+      "status": "in_progress",
+      "priority": "high",
+      "updated_at": "2026-09-14T08:45:00+07:00"
+    },
+    {
+      "ticket_id": "LAB-1002",
+      "status": "resolved",
+      "priority": "medium",
+      "updated_at": "2026-09-14T08:30:00+07:00"
+    }
+  ]
+}

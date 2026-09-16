@@ -1,0 +1,34 @@
+{
+  "dataset_id": "day04_v3_helpdesk_bonus",
+  "dataset_role": "bonus",
+  "description": "Three team-authored cases for the read-only check_ticket_status extension.",
+  "cases": [
+    {
+      "id": "B01_known_ticket",
+      "phase": "B",
+      "suite": "bonus",
+      "query": "Kiểm tra trạng thái ticket LAB-1001.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "check_ticket_status", "args": {"ticket_id": "LAB-1001"}}]},
+      "metadata": {"what_it_tests": "Route a known fictional ticket ID to the bonus tool."}
+    },
+    {
+      "id": "B02_unknown_ticket",
+      "phase": "B",
+      "suite": "bonus",
+      "query": "Cho tôi trạng thái ticket LAB-9999.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "check_ticket_status", "args": {"ticket_id": "LAB-9999"}}]},
+      "metadata": {"what_it_tests": "Keep routing deterministic while the tool returns not_found."}
+    },
+    {
+      "id": "B03_missing_ticket_id",
+      "phase": "B",
+      "suite": "bonus",
+      "query": "Kiểm tra giúp tôi trạng thái ticket.",
+      "failure_type": "missing_info",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "text"}}]},
+      "metadata": {"what_it_tests": "Ask for a missing ticket ID instead of guessing."}
+    }
+  ]
+}
