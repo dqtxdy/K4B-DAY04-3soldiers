@@ -7,14 +7,14 @@
 - Tên nhóm: 3soldiers
 - Người đại diện / MSSV: Đoàn Quang Thanh / 2A202602841
 - Tên repo: `K4B-DAY04-3soldiers` (theo mẫu tên repo BTC đã cập nhật)
-- URL repo, nhánh nộp, commit chốt: <https://github.com/dqtxdy/K4B-DAY04-3soldiers>, `main`, `[ĐIỀN SAU COMMIT TÍCH HỢP CUỐI]`
+- URL repo, nhánh nộp, commit chốt nội dung nhóm: <https://github.com/dqtxdy/K4B-DAY04-3soldiers>, `main`, `0e6d965`
 - Deadline mặc định: 23:59 ngày 16/09/2026, múi giờ Asia/Ho_Chi_Minh; thay bằng thông báo BTC nếu lớp có deadline khác.
 
 ## Thành viên
 
 | Họ và tên | MSSV | GitHub | Vai trò và công việc | File/commit/PR |
 |---|---|---|---|---|
-| Đoàn Quang Thanh | 2A202602841 | dqtxdy | v0–v1, tích hợp UI/transcript/README/report | `89117de`, `d88b446`, commit tích hợp cuối đang chờ |
+| Đoàn Quang Thanh | 2A202602841 | dqtxdy | v0–v1, tích hợp UI/transcript/README/report | `89117de`, `d88b446`, `076eb83` |
 | Phạm Minh Đăng | 2A202602591 | pmdangbn04 | v2 tool declarations, 10 case nhóm và group run | `bf0391b`, `b01134a` |
 | Đỗ Trọng Bình | 2A202602855 | DTB2324 | v3, safety gate, bonus tool/test và final regression | `9bf1aa0`, `6e25036` |
 
@@ -25,8 +25,8 @@
 3. `DTB2324`: v3 artifact, version log và v3 run 30/30.
 4. `DTB2324`: safety gate, bonus tool/test, final base regression và adversarial evidence.
 5. `pmdangbn04`: 10 case nhóm và group run trên artifact đã có bonus tool.
-6. `dqtxdy`: UI, transcript, README Linux và report tích hợp.
-7. Mỗi thành viên tự viết rồi commit mục INDIVIDUAL của mình.
+6. `dqtxdy`: UI, transcript, README Linux và report tích hợp (`076eb83`).
+7. Mỗi thành viên tự viết rồi commit mục INDIVIDUAL của mình; hai commit bổ sung cuối là `8ea5b2b` (`pmdangbn04`) và `0e6d965` (`DTB2324`).
 
 ## Nhận xét chung
 

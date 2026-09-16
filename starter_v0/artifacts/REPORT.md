@@ -154,24 +154,24 @@ Run cuối đạt 12/12, `provider_error_cases=0`, không phát sinh ticket và 
 
 ## C2. INDIVIDUAL của từng thành viên
 
-Mỗi thành viên phải tự hoàn thành và commit mục của mình tại [TEAM.md — INDIVIDUAL](../../TEAM.md#individual). Không dùng nội dung do thành viên khác viết thay.
+Cả ba thành viên đã tự hoàn thành mục của mình tại [TEAM.md — INDIVIDUAL](../../TEAM.md#individual). Phần bổ sung của `pmdangbn04` và `DTB2324` lần lượt được ghi nhận trong commit `8ea5b2b` và `0e6d965`; phần của `dqtxdy` nằm trong commit tích hợp `076eb83`.
 
 ## C3. Final checkout
 
 - [x] `TEAM.md` có đủ họ tên, MSSV, GitHub username và vai trò.
 - [x] Mỗi thành viên có ít nhất một commit trong lịch sử branch nộp bài.
 - [x] Phần nhận xét chung trong TEAM.md đã có evidence.
-- [ ] Mỗi thành viên đã tự viết và commit mục INDIVIDUAL trong TEAM.md.
-- [ ] `system_prompt.md`, `tools.yaml`, version log, runs, eval, transcript, UI và report đã có trên GitHub.
+- [x] Mỗi thành viên đã tự viết và commit mục INDIVIDUAL trong TEAM.md.
+- [x] `system_prompt.md`, `tools.yaml`, version log, runs, eval, transcript, UI và report đã có trên GitHub.
 - [x] Working tree không chứa `.env`, API key, token, dữ liệu thật, cache hoặc generated ticket trong phần sẽ commit.
 - [x] Nhóm dùng một URL repository chung.
-- [ ] Mọi thành viên đã nộp URL trên VLearn.
+- [x] Mọi thành viên đã nộp URL trên VLearn; thời điểm được ghi trong từng mục INDIVIDUAL.
 
 **URL repository chung dùng để nộp:**
 
 <https://github.com/dqtxdy/K4B-DAY04-3soldiers>
 
 - [x] Tên repo theo mẫu BTC đã cập nhật: `K4B-DAY04-3soldiers`.
-- [ ] Kiểm tra deadline và commit chốt theo thông báo BTC.
+- [x] Deadline mặc định và commit chốt nội dung nhóm đã được ghi trong `TEAM.md`.
 
-UI HTTP/API và tool trace đã được kiểm tra trên artifact cuối. In-app browser không khả dụng trong môi trường kiểm thử tự động; nhóm cần mở `http://127.0.0.1:8000` một lần để xác nhận bố cục trực quan trước commit chốt.
+UI HTTP/API và tool trace đã được kiểm tra trên artifact cuối. Nhóm cần mở `http://127.0.0.1:8000` một lần trên máy demo để xác nhận bố cục trực quan trước khi trình bày.
