@@ -56,7 +56,7 @@
 ### Đỗ Trọng Bình — 2A202602855
 
 - Phần việc và file/commit/PR: v3 core (`9bf1aa0`); safety gate, bonus tool/tests và final regression (`6e25036`).
-- Quyết định, khó khăn và cách xử lý:
-- Điều đã học:
-- AI/công cụ đã dùng và cách kiểm tra:
-- Thời điểm đã tự nộp URL repo chung trên VLearn:
+- Quyết định, khó khăn và cách xử lý: Tôi tập trung vào các lỗi còn lại sau v2 thay vì viết thêm prompt dài: siết literal enum, ranh giới giữa hỏi lại và thực thi, tránh lookup/inspect trùng, và bắt buộc xác nhận đúng payload trước khi tạo ticket. Khó khăn chính là một số lỗi an toàn không thể chỉ dựa vào prompt, ví dụ user tự ghi `confirmed=true`, role spoofing, secret trong nội dung ticket, hoặc gửi internal ID ra external tool. Tôi xử lý bằng `safety.py` để chặn trước model, lọc tool theo intent ticket-status, kiểm tra fresh confirmation từ lịch sử hội thoại thật, và đưa các tool call nguy hiểm về `clarify` khi thiếu điều kiện.
+- Điều đã học: Prompt engineering hiệu quả không phải cứ thêm rule vào system prompt, mà cần đặt rule đúng chỗ: policy chung ở `system_prompt.md`, routing/argument cụ thể ở `tools.yaml`, còn boundary có hậu quả thì nên có runtime gate và test. Tôi cũng học được cách đọc run trace để tìm nguyên nhân lỗi thật, phân biệt PASS metric với bằng chứng an toàn, và giữ eval cố định để so sánh v2/v3 công bằng.
+- AI/công cụ đã dùng và cách kiểm tra: Tôi dùng Codex hỗ trợ đọc trace, rà prompt/tool declaration, gợi ý cách diễn đạt boundary và kiểm tra lại nội dung báo cáo; các quyết định cuối cùng và phần commit vẫn do tôi kiểm tra/chốt theo evidence của nhóm. Tôi kiểm tra bằng OpenAI API với `gpt-4.1-mini-2025-04-14`, các run `v3_B_base` và `v3_bonus_B_base` đều 30/30, adversarial 12/12, bonus run 3/3; đồng thời chạy unit test cho `safety.py` và `check_ticket_status` đạt 12/12, review thủ công tool calls/tool results để chắc chắn không có write hoặc exfiltration ngoài ý muốn.
+- Thời điểm đã tự nộp URL repo chung trên VLearn: 10:08:12 ngày 16/09/2026 (Asia/Ho_Chi_Minh).
